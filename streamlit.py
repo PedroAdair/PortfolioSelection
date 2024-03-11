@@ -265,9 +265,11 @@ with tabs[0]:
             list_email = []
             list_email.append(email_adress)
             message_email(mensaje=mensaje, destinatarios=list_email, asunto= 'Notificacion de compra Grande')
-            print(moneda, total_inversion)
-            st.write('Se ha enviado un correo de notificación al correo {email_adress}, asi como una copia al archivo.')
-        list_email = []
-        list_email.append(email_adress)
-        message_email(mensaje=mensaje, destinatarios=list_email, asunto= 'Notificacion de compra')
-        st.write('Se ha enviado un correo de notificación al correo {email_adress}')
+            mensaje_html = f"<p style='color:green;'>Se ha enviado un correo de notificación al correo {email_adress} cc al archivo</p>"
+            st.markdown(mensaje_html, unsafe_allow_html=True)
+        else:
+            list_email = []
+            list_email.append(email_adress)
+            message_email(mensaje=mensaje, destinatarios=list_email, asunto= 'Notificacion de compra')
+            mensaje_html = f"<p style='color:green;'>Se ha enviado un correo de notificación al correo {email_adress} cc al archivo</p>"
+            st.markdown(mensaje_html, unsafe_allow_html=True)
