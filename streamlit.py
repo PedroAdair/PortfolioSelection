@@ -248,13 +248,10 @@ with tabs[0]:
                     server.starttls()
                     server.login(config['USER_MAIL'], config['pw'])
                     server.sendmail(config['USER_MAIL'],destinatarios, msg.as_string())
-        print(moneda, total_inversion)
         def verificar_inversion(moneda, total_inversion):
             with open("config.yaml", "r") as f:
                 config = yaml.safe_load(f)
             portfolio = config['Notification']['PortfolioAcquisition']
-            print(portfolio)
-            print(moneda in portfolio)
             for moneda_dict in portfolio.values():
                 if moneda_dict['currency'] == moneda:
                     cantidad_disponible = moneda_dict['TotalQuantity']
