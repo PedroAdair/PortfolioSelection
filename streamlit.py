@@ -267,3 +267,5 @@ with tabs[0]:
             message_email(mensaje=mensaje, destinatarios=list_email, asunto= 'Notificacion de compra Grande')
             print(moneda, total_inversion)
             st.write('Se ha enviado un correo de notificación')
+        message_email(mensaje=mensaje, destinatarios=list_email, asunto= 'Notificacion de compra')
+        
