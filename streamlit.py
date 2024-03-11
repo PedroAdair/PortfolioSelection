@@ -41,6 +41,8 @@ with tabs[0]:
     df_companies = pd.DataFrame(companies, columns=['companies'])
     companies_select = st.sidebar.multiselect('Pick the companies', df_companies['companies']) #only one option
     n_samples = st.slider("Número de Simulaciones:", min_value=10, max_value=1000, value=100) #n_samples for companies election
+    with st.sidebar:
+            email_adress = st.text_input("email de notificación")
     
     if not region and not companies_select:
         df3 = pd.read_csv(filepath_or_buffer='dataOpen.csv')
@@ -246,8 +248,8 @@ with tabs[0]:
             msg.attach(MIMEText(mensaje))
             with smtplib.SMTP('smtp.gmail.com') as server:
                     server.starttls()
-                    server.login(config['USER_MAIL'], config['pw'])
-                    server.sendmail(config['USER_MAIL'],destinatarios, msg.as_string())
+                    server.login(st.secrets['USER_MAIL'], st.secrets['pw'])
+                    server.sendmail(st.secrets['USER_MAIL'],destinatarios, msg.as_string())
         def verificar_inversion(moneda, total_inversion):
             with open("config.yaml", "r") as f:
                 config = yaml.safe_load(f)
@@ -260,6 +262,8 @@ with tabs[0]:
                 return False
         print(verificar_inversion(moneda=moneda, total_inversion=total_inversion))
         if verificar_inversion(moneda=moneda, total_inversion=total_inversion):
-            message_email(mensaje=mensaje, destinatarios=['ferphoenix1@gmail.com'], asunto= 'Notificacion de compra Grande')
+            list_email = []
+            list_email.append(email_adress)
+            message_email(mensaje=mensaje, destinatarios=list_email, asunto= 'Notificacion de compra Grande')
             print(moneda, total_inversion)
             st.write('Se ha enviado un correo de notificación')

@@ -1,0 +1,2 @@
+client_id = "769557207275-pi90jftb3s9rf34buf3fg0fla3pniqcc.apps.googleusercontent.com"
+client_secret = "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
