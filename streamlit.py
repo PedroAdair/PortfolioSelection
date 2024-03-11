@@ -266,6 +266,6 @@ with tabs[0]:
             list_email.append(email_adress)
             message_email(mensaje=mensaje, destinatarios=list_email, asunto= 'Notificacion de compra Grande')
             print(moneda, total_inversion)
-            st.write('Se ha enviado un correo de notificación')
+            st.write('Se ha enviado un correo de notificación al correo {email_adress}, asi como una copia al archivo.')
         message_email(mensaje=mensaje, destinatarios=list_email, asunto= 'Notificacion de compra')
-        
+        st.write('Se ha enviado un correo de notificación al correo {email_adress}')
