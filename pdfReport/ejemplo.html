@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .logo {
+            max-width: 200px;
+        }
+        .image-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .image-container img {
+            max-width: 45%;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="/home/PedroSci/Documents/PortfolioSelection/chichen_itza.jpg"  alt="Logo de la empresa" class="logo">
+    </header>
+    <main>
+        <h1>{{title}}</h1>
+        <p>{{Encargado}}.</p>
+        <div class="image-container">
+            <img src='/home/PedroSci/Documents/PortfolioSelection/chichen_itza.jpg' alt="Imagen 1">
+            <img src= {{constanzaLogo}} alt="Imagen 2">
+        </div>
+    </main>
+</body>
+</html>
