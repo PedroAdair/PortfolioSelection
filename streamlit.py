@@ -18,7 +18,8 @@ warnings.filterwarnings('ignore')
 
 
 st.set_page_config(page_title= 'financialServices', page_icon= 'bar_chart:', layout='wide')
-st.title(' :bar_chart: Financial Services')
+st.image("new_logo.png", width=200)
+st.title('Financial Services')
 st.markdown('<style>div.block-container{padding-top:1rem}</style>',unsafe_allow_html=True)
 tabs = st.tabs([
     'Seleción de portafolio', 'Predicciones', '... ', '...'
