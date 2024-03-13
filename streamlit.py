@@ -213,8 +213,8 @@ with tabs[0]:
                 df_modificado = df_editable
                 if np.abs(suma_porcentajes - 100)<0.001:
                     st.success('La suma de los porcentajes es igual a 100%.')
-                    df_personal['Inversión'] = df_modificado['Porcentaje'] / 100 * total_inversion
-                    st.write(df_personal)
+                    df_editable['Inversión'] = df_modificado['Porcentaje'] / 100 * total_inversion
+                    st.write(df_editable)
                 else:
                     st.error('La suma debe de dar 100%')
         elif portafolio == "Markowitz":
@@ -232,7 +232,7 @@ with tabs[0]:
             weights = np.array(df_personal.iloc[:, 0].tolist())
 
         portfolio_std_dev, portfolio_return  = PortafolioPersonal(stocks=companies_select, weights=weights,table=df3, startDate=startDate)  
-        mensaje = f"{nombre_comprador} {ApellidoMat} {ApellidoPat} ha comprado un portafolio con valor de {total_inversion} {moneda}. Este portafolio se hizo a travez de la siguietne metodologia: {portafolio}"
+        mensaje = f"{nombre_comprador} {ApellidoMat} {ApellidoPat} ha comprado un portafolio con valor de {total_inversion} {moneda}. Este portafolio se hizo a travez de la siguietne metodologia: {portafolio}.  La varianza y el riesgo son:{portfolio_std_dev, portfolio_return}"
         
         def message_email(mensaje: str, destinatarios:list, asunto:str):
                 
