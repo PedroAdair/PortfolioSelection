@@ -29,7 +29,6 @@ frozendict==2.4.0
 gitdb==4.0.11
 GitPython==3.1.42
 holoviews==1.18.3
-html5lib==1.1
 hvplot==0.9.2
 idna==3.6
 importlib-metadata @ file:///croot/importlib_metadata-suite_1704813515092/work
