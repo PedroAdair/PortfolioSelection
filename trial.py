@@ -9,26 +9,31 @@ import logging
 from bs4 import BeautifulSoup
 
 
-env = Environment(loader=FileSystemLoader('pdfReport'))
-template = env.get_template('ejemplo.html')
+# env = Environment(loader=FileSystemLoader('pdfReport'))
+# template = env.get_template('ejemplo.html')
+with open('ejemplo.html', 'r') as file:
+        template = Template(file.read())
 
 usuario = {
     'title': 'Reporte de Compra',
     'Encargado': 'Pedro Adair Avila',
-    'constanzaLogo': '/home/PedroSci/Documents/PortfolioSelection/chichen_itza.jpg'
+    'constanzaLogo': './chichen_itza.jpg'
 }
 
 html = template.render(usuario)
 
-f = open('ejemplo.html', 'w')
-f.write(html)
-f.close()
-
-pdfkit.from_file('ejemplo.html', 'nuevo1.pdf')
+pdfkit.from_string(html, 'report1.pdf')
 
 
+# f = open('ejemplo.html', 'w')
+# f.write(html)
+# f.close()
 
-# pdfkit.from_string(html, 'report1.pdf')
+# pdfkit.from_file('ejemplo.html', 'nuevo1.pdf')
+
+
+
+pdfkit.from_string(html, 'report1.pdf')
 
 # with open('pdfReport/ejemplo.html', 'r') as file:
 #         template = Template(file.read())

@@ -207,7 +207,7 @@ with tabs[0]:
 
             df_personal = pd.DataFrame(lista,index=companies_select, columns=['Porcentaje'] )
             df_editable  = st.data_editor(df_personal)
-            suma_porcentajes = df_personal['Porcentaje'].sum()
+            suma_porcentajes = df_editable['Porcentaje'].sum()
 
             if st.button('Verificar suma de porcentajes'):
                 df_modificado = df_editable
